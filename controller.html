@@ -1,0 +1,35 @@
+<html>
+<body>
+    <!-- user interface code begins -->
+   <!--  First Number : <input type="text" />
+    Second Number : <input type="text" />
+	<button value="up">ValidAdd</button>
+	Result : <label id="resultValid" /> <br \><br \> -->
+    <button value="up">Up</button>
+    <button value="down">Down</button>
+    <button value="left">Left</button>
+    <button value="right">Right</button>
+
+    <!-- user interface code ends -->
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="controller.php"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var phpScript = 'controller1.php';
+            var keyPressed = '';
+			<!-- var firstVal = '';var secondVal = ''; -->
+
+            $("button").click(function () {
+                keyPressed = $(this).val(); // get value of key pressed
+				
+                $.post(phpScript, { data: keyPressed }, function (response) {
+                    
+					<!-- $('#resultValid').html(response); -->
+					alert(response);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
